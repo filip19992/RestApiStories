@@ -7,7 +7,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import pl.filipwlodarczyk.stronaZeZdejciami.role.Role;
 import pl.filipwlodarczyk.stronaZeZdejciami.role.RoleService;
-import pl.filipwlodarczyk.stronaZeZdejciami.story.StoryModel;
+import pl.filipwlodarczyk.stronaZeZdejciami.story.Story;
 import pl.filipwlodarczyk.stronaZeZdejciami.story.StoryService;
 import pl.filipwlodarczyk.stronaZeZdejciami.user.AppUser;
 import pl.filipwlodarczyk.stronaZeZdejciami.user.UserSerivceImplementation;
@@ -38,9 +38,9 @@ public class DataLoader implements ApplicationRunner {
         appUserService.saveUser(new AppUser(
                 "filip19992", passwordEncoder().encode("password"), 22,"ROLE_USER"));
 
-        storyService.saveStory(new StoryModel("Opowiesc", "Tu bedzie tresc", appUserService.findUserByUsername("filip19992")));
+        storyService.saveStory(new Story("Opowiesc", "Tu bedzie tresc", appUserService.findUserByUsername("filip19992")));
 
-        storyService.saveStory(new StoryModel("Opowiesc2", "asdasdasdasd", appUserService.findUserByUsername("filip19992")));
+        storyService.saveStory(new Story("Opowiesc2", "asdasdasdasd", appUserService.findUserByUsername("filip19992")));
 
     }
 }

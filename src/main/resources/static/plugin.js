@@ -1,1 +1,1 @@
-alert('To jest gówno!')
+alert('Witaj na mojej stronie:)')

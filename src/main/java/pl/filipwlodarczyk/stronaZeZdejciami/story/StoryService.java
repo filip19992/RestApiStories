@@ -13,8 +13,8 @@ public class StoryService {
         this.storyRepo = storyRepo;
     }
 
-    public void saveStory(StoryModel storyModel) {
-        storyRepo.save(storyModel);
+    public void saveStory(Story story) {
+        storyRepo.save(story);
     }
 
     //TODO: Send stories with the author's username, its title and content as a JSON object!!!
@@ -23,11 +23,11 @@ public class StoryService {
     }
 
 
-    public List<StoryModel> findStoryByAuthorId(Long id) {
+    public List<Story> findStoryByAuthorId(Long id) {
         return storyRepo.findStoryByAuthorId(id);
     }
 
-    public List<StoryModel> findAllStories() {
+    public List<Story> findAllStories() {
         return storyRepo.findAll();
     }
 }

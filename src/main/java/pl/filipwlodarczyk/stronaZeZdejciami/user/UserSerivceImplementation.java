@@ -37,4 +37,8 @@ public class UserSerivceImplementation implements UserDetailsService {
         return appUser.getUsername();
 
     }
+
+    public Optional<AppUser> findUserById(Long id) {
+        return appUserRepo.findById(id);
+    }
 }

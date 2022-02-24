@@ -11,9 +11,10 @@
         <th>title</th>
         <th>content</th>
     </tr>
-    <tr th:each="storyModel : ${stories}">
-        <td th:text="${storyModel.title}"></td>
-        <td th:text="${storyModel.content}"></td>
+    <tr th:each="story : ${stories}">
+        <td><span th:text="${story.title}">Title</span></td>
+        <td><span th:text="${story.content}">Content</span></td>
+
     </tr>
 </table>
 </body>

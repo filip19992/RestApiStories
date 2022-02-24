@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table
-public class StoryModel {
+public class Story {
 
     @Id
     @GeneratedValue
@@ -22,13 +22,13 @@ public class StoryModel {
     @ManyToOne
     private AppUser appUser;
 
-    public StoryModel(String title, String content, AppUser appUser) {
+    public Story(String title, String content, AppUser appUser) {
         this.title = title;
         this.content = content;
         this.appUser = appUser;
     }
 
-    public StoryModel() {
+    public Story() {
     }
 
     public Long getId() {
@@ -45,5 +45,13 @@ public class StoryModel {
 
     public AppUser getAppUser() {
         return appUser;
+    }
+
+    @Override
+    public String toString() {
+        return "Story{" +
+                "title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                '}';
     }
 }
