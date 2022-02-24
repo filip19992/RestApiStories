@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="uft-8">
+    <title>To jest nazwa strony</title>
+    <script src="plugin.js">Script</script>
+</head>
+<body>
+<table>
+    <tr>
+        <th>title</th>
+        <th>content</th>
+    </tr>
+    <tr th:each="storyModel : ${stories}">
+        <td th:text="${storyModel.title}"></td>
+        <td th:text="${storyModel.content}"></td>
+    </tr>
+</table>
+</body>
+</html>

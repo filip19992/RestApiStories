@@ -1,0 +1,1 @@
+alert('To jest gówno!')
