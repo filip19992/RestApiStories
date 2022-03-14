@@ -35,8 +35,11 @@ public class DataLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         roleService.saveRole(new Role("ROLE_USER"));
+        roleService.saveRole(new Role("ROLE_ADMIN"));
         appUserService.saveUser(new AppUser(
-                "filip19992", passwordEncoder().encode("password"), 22,"ROLE_USER"));
+                "filip19992", passwordEncoder().encode("password"), 22,"ROLE_ADMIN"));
+
+        appUserService.saveUser(new AppUser("user","password", 25, "ROLE_USER"));
 
         storyService.saveStory(new Story("Opowiesc", "Tu bedzie tresc", appUserService.findUserByUsername("filip19992")));
 

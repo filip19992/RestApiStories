@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+
     <meta charset="UTF-8">
     <title>Title</title>
+
 </head>
 <body>
-<p>Nazwa uzytkownika:</p>
-<p th:text="${username}"></p>
+<div class="naglowek">
+    <img src="../static/images/MyStoryLogo.png" style="width:1500px; height:300px">
+    <p>Nazwa uzytkownika:</p>
+    <p th:text="${username}"></p>
+
+</div>
+
 <ul th:each="story : ${stories}">
     <li><span th:text="${story.content}">Content</span></li>
 

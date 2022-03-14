@@ -17,7 +17,6 @@ public class StoryService {
         storyRepo.save(story);
     }
 
-    //TODO: Send stories with the author's username, its title and content as a JSON object!!!
     public String findContent(Long id) {
        return storyRepo.findByContentById(id);
     }
@@ -29,5 +28,15 @@ public class StoryService {
 
     public List<Story> findAllStories() {
         return storyRepo.findAll();
+    }
+
+    //TODO: This method must return 3 last stories wirtten by a particular user!!!
+    public List<Story> findThreeLastStories(Long id) {
+        List<Story> storyByAuthorId = findStoryByAuthorId(id);
+
+
+return null;
+
+
     }
 }

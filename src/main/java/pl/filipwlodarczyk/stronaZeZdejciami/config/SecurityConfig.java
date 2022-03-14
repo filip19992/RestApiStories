@@ -33,6 +33,53 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+
+        String[] staticResources = {
+                "/css/**",
+                "/images/**",
+                "/fonts/**",
+                "/scripts/**",
+        };
+
+        http.csrf().disable();
+
+        //doesnt work
+        http.authorizeRequests().antMatchers("../images/**").permitAll();
+
+        //doesnt work
+        http.authorizeRequests().antMatchers(staticResources).permitAll();
+
+        //doesnt work
+        http.authorizeRequests().antMatchers("../resources/**").permitAll();
+
+        //doesnt work
+        http.authorizeRequests().antMatchers("/resources/**").permitAll();
+
+        //doesnt work
+        http.authorizeRequests().antMatchers("/static/**").permitAll();
+
+
+
+        http.authorizeRequests().antMatchers("/story/**").hasAuthority("ROLE_ADMIN");
+
+        http.authorizeRequests().antMatchers("/profile/**").authenticated();
+
+
+        //  http.authorizeRequests().antMatchers("src/main/resources/**").permitAll();
+        http.authorizeRequests().anyRequest().authenticated();
+
+
+        http.formLogin().permitAll();
+
+        http.formLogin().defaultSuccessUrl("/home", true);
+
+
+        http.logout().permitAll();
+    }
+
+
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
@@ -43,23 +90,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable();
 
-        http.authorizeRequests().antMatchers("/profile","/story/**").hasAuthority("ROLE_USER");
-
-        http.authorizeRequests().anyRequest().authenticated();
-
-
-
-        http.formLogin().permitAll();
-
-        http.formLogin().defaultSuccessUrl("/home", true);
-
-
-        http.logout().permitAll();
-    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
