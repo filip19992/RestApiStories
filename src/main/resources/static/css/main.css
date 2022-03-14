@@ -1,9 +1,24 @@
-.menu {
-height: 150px;
-width 1500px;
-text-align: center;
+
+body {
+background-color: lightgray;
 }
 
-.logoutButton {
+.menu {
+padding-left: 10px
+margin:20px;
+}
 
+
+.logoutButton {
+margin-left: 150px;
+height:50px;
+background-color:lightblue;
+}
+
+
+.posts {
+margin: 50px;
+border: 5px solid #FFFF00;
+display: flex;
+justify-content: center;
 }

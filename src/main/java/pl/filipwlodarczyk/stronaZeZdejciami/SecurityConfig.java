@@ -1,4 +1,4 @@
-package pl.filipwlodarczyk.stronaZeZdejciami.config;
+package pl.filipwlodarczyk.stronaZeZdejciami;
 
 
 import org.springframework.context.annotation.Bean;
@@ -45,20 +45,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable();
 
-        //doesnt work
-        http.authorizeRequests().antMatchers("../images/**").permitAll();
 
-        //doesnt work
         http.authorizeRequests().antMatchers(staticResources).permitAll();
-
-        //doesnt work
-        http.authorizeRequests().antMatchers("../resources/**").permitAll();
-
-        //doesnt work
-        http.authorizeRequests().antMatchers("/resources/**").permitAll();
-
-        //doesnt work
-        http.authorizeRequests().antMatchers("/static/**").permitAll();
 
 
 
@@ -67,7 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/profile/**").authenticated();
 
 
-        //  http.authorizeRequests().antMatchers("src/main/resources/**").permitAll();
+
         http.authorizeRequests().anyRequest().authenticated();
 
 
