@@ -42,4 +42,14 @@ public class TemplateController {
 
         return "profile";
     }
+
+    @RequestMapping(value = "/registration")
+    public String getRegistrationPage(Model model) {
+        return "registration";
+    }
+
+    @RequestMapping(value = "/login")
+    public String getLoginPage() {
+        return "login";
+    }
 }

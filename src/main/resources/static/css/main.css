@@ -22,3 +22,21 @@ border: 5px solid #FFFF00;
 display: flex;
 justify-content: center;
 }
+
+
+.container{
+width:1500px;
+height:1000px;
+
+}
+
+.menu {
+width:auto;
+margin:auto;
+padding: 50px;
+}
+
+.label {
+padding-top:40px;
+margin-right:50px;
+}

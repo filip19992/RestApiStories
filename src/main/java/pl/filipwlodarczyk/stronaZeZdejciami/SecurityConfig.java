@@ -36,30 +36,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        String[] staticResources = {
+        String[] forAll = {
                 "/css/**",
                 "/images/**",
                 "/fonts/**",
                 "/scripts/**",
+                "/registration",
+                "/login"
         };
+
 
         http.csrf().disable();
 
-
-        http.authorizeRequests().antMatchers(staticResources).permitAll();
-
-
+        http.authorizeRequests().antMatchers(forAll).permitAll();
 
         http.authorizeRequests().antMatchers("/story/**").hasAuthority("ROLE_ADMIN");
 
         http.authorizeRequests().antMatchers("/profile/**").authenticated();
 
-
-
         http.authorizeRequests().anyRequest().authenticated();
 
-
-        http.formLogin().permitAll();
+        http.formLogin().loginPage("/login")
+                .permitAll();
 
         http.formLogin().defaultSuccessUrl("/home", true);
 
@@ -76,8 +74,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         return authProvider;
     }
-
-
 
 
     @Override
