@@ -3,18 +3,23 @@ package pl.filipwlodarczyk.stronaZeZdejciami.user;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import pl.filipwlodarczyk.stronaZeZdejciami.role.RoleService;
 import pl.filipwlodarczyk.stronaZeZdejciami.user.registration.AppUserRegistrationForm;
+import pl.filipwlodarczyk.stronaZeZdejciami.user.registration.PasswordValidator;
 
 import java.util.Optional;
 
 
 @Service
 public class UserSerivceImplementation implements UserDetailsService {
-    private final AppUserRepo appUserRepo;
 
-    public UserSerivceImplementation(AppUserRepo appUserRepo) {
+    private final AppUserRepo appUserRepo;
+    private final PasswordEncoder passwordEncoder;
+    public UserSerivceImplementation(AppUserRepo appUserRepo, PasswordEncoder passwordEncoder) {
         this.appUserRepo = appUserRepo;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -43,8 +48,11 @@ public class UserSerivceImplementation implements UserDetailsService {
         return appUserRepo.findById(id);
     }
 
-    public void saveAppUser(AppUserRegistrationForm form) {
-        appUserRepo.save(null);
+    public void saveAppUser(AppUserRegistrationForm form) throws Exception {
+
+        if(PasswordValidator.validatePassword(form.getPassword())) {
+            appUserRepo.save(new AppUser(form.getUsername(),passwordEncoder.encode(form.getPassword()),form.getAge(),"ROLE_USER"));
+        }
     }
 
 

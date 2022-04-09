@@ -25,7 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return new UserSerivceImplementation(appUserRepo);
+        return new UserSerivceImplementation(appUserRepo, passwordValidator, roleService, passwordEncoder);
     }
 
     @Bean
