@@ -4,6 +4,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import pl.filipwlodarczyk.stronaZeZdejciami.user.registration.AppUserRegistrationForm;
 
 import java.util.Optional;
 
@@ -41,6 +42,11 @@ public class UserSerivceImplementation implements UserDetailsService {
     public Optional<AppUser> findUserById(Long id) {
         return appUserRepo.findById(id);
     }
+
+    public void saveAppUser(AppUserRegistrationForm form) {
+        appUserRepo.save(null);
+    }
+
 
     }
 
