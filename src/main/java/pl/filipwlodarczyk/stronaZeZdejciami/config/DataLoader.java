@@ -43,12 +43,12 @@ public class DataLoader implements ApplicationRunner {
 
         appUserService.saveUser(new AppUser("user","password", 25, "ROLE_USER"));
 
-        storyService.saveStory(new Story("Opowiesc", "Tu bedzie tresc", appUserService.findUserByUsername("filip19992")));
-        storyService.saveStory(new Story("Opowiesc2", "asdasdasdasd", appUserService.findUserByUsername("filip19992")));
-        storyService.saveStory(new Story("Opowiesc3", generateString(), appUserService.findUserByUsername("filip19992")));
-        storyService.saveStory(new Story("Opowiesc4", generateString(), appUserService.findUserByUsername("user")));
-        storyService.saveStory(new Story("Opowiesc5", generateString(), appUserService.findUserByUsername("user")));
-        storyService.saveStory(new Story("Opowiesc6", generateString(), appUserService.findUserByUsername("user")));
+        storyService.saveStory(new Story("Opowiesc", "“The Yellow Wallpaper” by Charlotte Perkins Gilman explores a woman’s descent into madness after she’s confined to a room with yellow wallpaper to help her nervous disorder. It is a groundbreaking short story that drew attention to mental health and women’s rights when it was released and has influenced many writers, including Alice Walker and Sylvia Plath.", appUserService.findUserByUsername("filip19992")));
+        storyService.saveStory(new Story("Opowiesc2", "Reading some of these short stories can better acquaint you with the short story form and the challenges faced by authors to develop an interesting plot and detailed characters. Investigate a few additional popular examples of short stories.", appUserService.findUserByUsername("filip19992")));
+        storyService.saveStory(new Story("Opowiesc3", "Explore an individual's fall into the abyss of insanity in Edgar Allan Poe’s “The Fall of the House of Usher.” Poe’s poetic prose creates an air of suspense as he weaves the twisted tale of the House of Usher.", appUserService.findUserByUsername("filip19992")));
+        storyService.saveStory(new Story("Opowiesc4", "In \"The Lottery” by Shirley Jackson, tradition and community ties lead to deadly consequences when a woman is chosen in the eponymous lottery to be stoned to death.", appUserService.findUserByUsername("user")));
+        storyService.saveStory(new Story("Opowiesc5", "“The Gift of the Magi” by O. Henry is a classic story with a powerful theme of love and giving. In just a few short pages, O. Henry creates sympathetic characters that the audience can relate to. This glimpse into their lives highlights both their power of character and the key themes of the story such as love, giving and sacrifice.", appUserService.findUserByUsername("user")));
+        storyService.saveStory(new Story("Opowiesc6", "In \"The Lottery” by Shirley Jackson, tradition and community ties lead to deadly consequences when a woman is chosen in the eponymous lottery to be stoned to death.", appUserService.findUserByUsername("user")));
 
     }
 

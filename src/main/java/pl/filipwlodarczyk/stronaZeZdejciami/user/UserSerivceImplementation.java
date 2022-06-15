@@ -16,10 +16,9 @@ import java.util.Optional;
 public class UserSerivceImplementation implements UserDetailsService {
 
     private final AppUserRepo appUserRepo;
-    private final PasswordEncoder passwordEncoder;
-    public UserSerivceImplementation(AppUserRepo appUserRepo, PasswordEncoder passwordEncoder) {
+
+    public UserSerivceImplementation(AppUserRepo appUserRepo) {
         this.appUserRepo = appUserRepo;
-        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -33,8 +32,12 @@ public class UserSerivceImplementation implements UserDetailsService {
         appUserRepo.save(user);
     }
 
-    public AppUser findUserByUsername(String username) {
-        return appUserRepo.findByUsername(username);
+    public AppUser findUserByUsername(String username) throws Exception {
+        if(username != null) {
+            return appUserRepo.findByUsername(username);
+        } else {
+            throw new Exception("There is no user with this username");
+        }
     }
 
     public String findUsernameById(Long id) {
@@ -48,15 +51,16 @@ public class UserSerivceImplementation implements UserDetailsService {
         return appUserRepo.findById(id);
     }
 
-    public void saveAppUser(AppUserRegistrationForm form) throws Exception {
 
+    public void registerAppUser(AppUserRegistrationForm form) throws Exception {
         if(PasswordValidator.validatePassword(form.getPassword())) {
-            appUserRepo.save(new AppUser(form.getUsername(),passwordEncoder.encode(form.getPassword()),form.getAge(),"ROLE_USER"));
+            appUserRepo.save(new AppUser(form.getUsername(),
+                    form.getPassword(),
+                    form.getAge(),
+                    "ROLE_USER"));
         }
     }
-
-
-    }
+}
 
 
 

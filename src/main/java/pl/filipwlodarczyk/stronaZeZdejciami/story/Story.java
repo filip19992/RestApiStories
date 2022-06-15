@@ -15,7 +15,7 @@ public class Story {
     @Column
     private String title;
 
-    @Column
+    @Column(columnDefinition="TEXT")
     private String content;
 
     @JoinColumn(referencedColumnName = "id", name = "app_user_id")

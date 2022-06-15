@@ -11,7 +11,7 @@ public class PasswordValidator {
        } else if (password.length() > 20) {
            throw new Exception("password is too long");
        } else if (firstChar.charValue() < 64 || firstChar.charValue() > 90) {
-           return false;
+           throw new Exception("First lettter is not an upper case");
        } else {
            return true;
        }

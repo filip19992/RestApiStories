@@ -20,10 +20,6 @@
 </div>
 <div class="posts">
 <table class="posts2">
-    <tr>
-        <th>Tytul</th>
-        <th>Tresc</th>
-    </tr>
     <tr th:each="story : ${stories}">
         <td><span th:text="${story.title}">Title</span></td>
         <td><span th:text="${story.content}">Content</span></td>

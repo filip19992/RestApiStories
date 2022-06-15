@@ -14,7 +14,7 @@ public class AppUserController {
     }
 
     @PostMapping
-    public void registerAppUser(@RequestBody AppUserRegistrationForm form) {
-        userService.saveAppUser(form);
+    public void registerAppUser(@RequestBody AppUserRegistrationForm form) throws Exception {
+        userService.registerAppUser(form);
     }
 }
