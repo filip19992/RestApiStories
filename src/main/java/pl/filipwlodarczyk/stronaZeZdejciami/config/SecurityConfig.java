@@ -1,4 +1,4 @@
-package pl.filipwlodarczyk.stronaZeZdejciami;
+package pl.filipwlodarczyk.stronaZeZdejciami.config;
 
 
 import org.springframework.context.annotation.Bean;
