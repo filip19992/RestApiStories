@@ -1,8 +1,10 @@
 package pl.filipwlodarczyk.stronaZeZdejciami.user;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.filipwlodarczyk.stronaZeZdejciami.role.RoleService;
@@ -19,6 +21,11 @@ public class UserSerivceImplementation implements UserDetailsService {
 
     public UserSerivceImplementation(AppUserRepo appUserRepo) {
         this.appUserRepo = appUserRepo;
+    }
+
+    @Bean
+    private BCryptPasswordEncoder passwordEncoder (){
+        return new BCryptPasswordEncoder();
     }
 
     @Override
@@ -55,7 +62,7 @@ public class UserSerivceImplementation implements UserDetailsService {
     public void registerAppUser(AppUserRegistrationForm form) throws Exception {
         if(PasswordValidator.validatePassword(form.getPassword())) {
             appUserRepo.save(new AppUser(form.getUsername(),
-                    form.getPassword(),
+                    passwordEncoder().encode(form.getPassword()),
                     form.getAge(),
                     "ROLE_USER"));
         }
