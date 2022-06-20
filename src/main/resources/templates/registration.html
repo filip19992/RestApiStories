@@ -1,8 +1,14 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-</head>
+
+    <head>
+        <link rel="stylesheet" th:href="@{/css/main.css}">
+        <meta charset="uft-8">
+        <title>To jest nazwa strony</title>
+    </head>
+
 <body>
-<form method="post" th:action="@{/save}" th:object="${form}">
+<div class="formContainer">
+<form class="mainForm" method="post" th:action="@{/save}" th:object="${form}">
 
             <input id="username" type="text" th:field="*{username}">Login</input>
 
@@ -11,7 +17,9 @@
 
 
             <input id="age" type="text"  th:field="*{age}">Age</input>
+    <button type="submit">Confirm</button>
 </form>
+</div>
 
 </body>
 </html>
