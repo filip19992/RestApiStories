@@ -37,6 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         String[] forAll = {
+                "/swagger-ui",
                 "/css/**",
                 "/images/**",
                 "/fonts/**",
