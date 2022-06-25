@@ -44,11 +44,7 @@ public class TemplateController {
         return "profile";
     }
 
-    @RequestMapping(value = "/registration")
-    public String getRegistrationPage(Model model, AppUserRegistrationForm form) {
-        model.addAttribute("form", form);
-        return "registration";
-    }
+
 
     @RequestMapping(value = "/login")
     public String getLoginPage() {

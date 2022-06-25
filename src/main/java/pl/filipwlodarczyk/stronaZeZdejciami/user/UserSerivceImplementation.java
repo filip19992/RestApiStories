@@ -59,6 +59,8 @@ public class UserSerivceImplementation implements UserDetailsService {
     }
 
 
+    //TODO: Data doesnt send after submit in html
+
     public void registerAppUser(AppUserRegistrationForm form) throws Exception {
         if(PasswordValidator.validatePassword(form.getPassword())) {
             appUserRepo.save(new AppUser(form.getUsername(),

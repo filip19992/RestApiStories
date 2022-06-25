@@ -9,15 +9,17 @@
 <body>
 <div class="formContainer">
 <form class="mainForm" method="post" th:action="@{/save}" th:object="${form}">
+    <div class="container">
 
-            <input id="username" type="text" th:field="*{username}">Login</input>
-
-
-            <input id="password" type="text"  th:field="*{password}">Password</input>
+            <input class="credentialsField" type="text" th:field="*{username}">Login</input>
 
 
-            <input id="age" type="text"  th:field="*{age}">Age</input>
+            <input class="credentialsField" type="text"  th:field="*{password}">Password</input>
+
+
+            <input class="credentialsField" type="text"  th:field="*{age}">Age</input>
     <button type="submit">Confirm</button>
+    </div>
 </form>
 </div>
 

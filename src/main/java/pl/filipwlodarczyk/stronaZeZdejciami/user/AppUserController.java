@@ -17,6 +17,12 @@ public class AppUserController {
     public String registerAppUser(@ModelAttribute("form") AppUserRegistrationForm form, Model model) throws Exception {
         model.addAttribute("form", form);
         userService.registerAppUser(form);
-        return "home";
+        return "registration";
+    }
+
+    @RequestMapping(value = "/registration")
+    public String getRegistrationPage(Model model, AppUserRegistrationForm form) {
+        model.addAttribute("form", form);
+        return "registration";
     }
 }
