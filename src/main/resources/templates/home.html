@@ -7,25 +7,26 @@
     <script src="plugin.js">Script</script>
 </head>
 <body>
+    <div class="home-background-color">
+<div class="home-container">
 
-<div class="menu">
-    <img th:src="@{/images/MyStoryLogo.png}" style="width:1500px; height:300px">
+<div class="home-menu">
+    <img class="home-logo" th:src="@{/images/MyStoryLogo.png}">
     <label>Wpisz nazwe uzytkownika</label>
     <input type="text" id="searchInput" name="search">
-    <button class="logoutButton"
-            onclick="window.location.href = 'http://localhost:8080/logout';">
-        Click here to logout
-    </button>
+    <button class="home-logoutButton"onclick="window.location.href = 'http://localhost:8080/logout';"> Click here to logout</button>
 
 </div>
-<div class="posts">
-<table class="posts2">
+<div class="home-posts">
+<table class="home-posts-table">
     <tr th:each="story : ${stories}">
         <td><span th:text="${story.title}">Title</span></td>
         <td><span th:text="${story.content}">Content</span></td>
 
     </tr>
 </table>
+</div>
+</div>
 </div>
 </body>
 </html>
