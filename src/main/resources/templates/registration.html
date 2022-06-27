@@ -8,7 +8,7 @@
 
 <body>
 <div class="formContainer">
-<form class="mainForm" method="post" th:action="@{/save}" th:object="${form}">
+<form class="mainForm" method="post" th:action="@{/save}" th:object="${appUserForm}">
     <div class="container">
 
             <input class="credentialsField" type="text" th:field="*{username}">Login</input>
@@ -18,7 +18,7 @@
 
 
             <input class="credentialsField" type="text"  th:field="*{age}">Age</input>
-    <button type="submit">Confirm</button>
+    <input type="submit" value="Submit">
     </div>
 </form>
 </div>
