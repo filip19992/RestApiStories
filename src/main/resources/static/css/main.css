@@ -1,19 +1,15 @@
 .home-menu {
    width:100%;
-   height: 170px;
-   background-color:rgb(65,105,225)
+   height: 100px;
+   background-color:rgb(65,105,225);
    margin-bottom: 100px;
    padding: 0px 20px;
+   position:relative;
 }
 
-.home-background-color {
-   
-}
 
 .home-logo {
-   width:auto;
-   height:auto;
-   object-fit: cover;  
+  position:absolute;
 }
    
 
@@ -25,24 +21,25 @@
 }
 
 .home-logoutButton {
-   margin-left: 150px;
+   
    height:50px;
-   background-color:rgb(100,149,237)
+   background-color:rgb(100,149,237);
+   float:right;
+   margin-right:30px;
+   margin-top:30px;
 
    }
-   
 
 
 .formContainer{
    display:flex;
    justify-content:center;
    align-items:center;
-   height:100vh;
 }
 
 
 body {
-background-color: rgb(100,149,237)
+background-color: rgb(100,149,237);
 }
 
 
