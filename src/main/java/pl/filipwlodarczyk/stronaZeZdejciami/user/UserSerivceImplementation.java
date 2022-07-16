@@ -6,8 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import pl.filipwlodarczyk.stronaZeZdejciami.user.registration.AppUserForm;
-import pl.filipwlodarczyk.stronaZeZdejciami.user.registration.PasswordValidator;
+import pl.filipwlodarczyk.stronaZeZdejciami.registration.AppUserForm;
 
 import java.util.Optional;
 
@@ -60,12 +59,10 @@ public class UserSerivceImplementation implements UserDetailsService {
     //TODO: Data doesnt send after submit in html
 
     public void registerAppUser(AppUserForm form) throws Exception {
-        if(PasswordValidator.validatePassword(form.getPassword())) {
             appUserRepo.save(new AppUser(form.getUsername(),
                     passwordEncoder().encode(form.getPassword()),
                     form.getAge(),
                     "ROLE_USER"));
-        }
     }
 }
 
