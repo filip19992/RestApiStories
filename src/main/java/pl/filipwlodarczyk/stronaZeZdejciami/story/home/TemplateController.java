@@ -32,10 +32,10 @@ public class TemplateController {
     }
 
     @RequestMapping(value = "/profile/{id}")
-    public String getProfileById(Model model, @PathVariable Long id) {
+    public String getProfileById(Model model, @PathVariable Long id) throws Exception {
 
         Optional<AppUser> userById = userService.findUserById(id);
-        List<Story> storiesByAuthorId = storyService.findStoryByAuthorId(id);
+        Optional<List<Story>> storiesByAuthorId = storyService.findStoryByAuthorId(id);
 
         model.addAttribute("username",userById.get().getUsername());
         model.addAttribute("stories",storiesByAuthorId);
