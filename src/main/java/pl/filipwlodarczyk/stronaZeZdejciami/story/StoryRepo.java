@@ -6,6 +6,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface StoryRepo extends JpaRepository<Story, Long> {
@@ -17,5 +18,5 @@ public interface StoryRepo extends JpaRepository<Story, Long> {
 
 
     @Query("select s from Story s where s.appUser = (select c from AppUser c where id=:id)")
-    List<Story> findStoryByAuthorId(@Param("id")Long id);
+    Optional<List<Story>> findStoryByAuthorId(@Param("id")Long id);
 }

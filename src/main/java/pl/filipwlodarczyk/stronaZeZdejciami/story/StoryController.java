@@ -1,13 +1,11 @@
 package pl.filipwlodarczyk.stronaZeZdejciami.story;
 
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class StoryController {
@@ -27,7 +25,7 @@ public class StoryController {
 
     //TODO: make method returns json with list of stories from author id!!!
     @GetMapping("/story/{authorId}")
-    public List<Story> findStoriesByAuthorId(@PathVariable("authorId") Long authorId) {
+    public Optional<List<Story>> findStoriesByAuthorId(@PathVariable("authorId") Long authorId) throws Exception {
         return storyService.findStoryByAuthorId(authorId);
     }
 
