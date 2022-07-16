@@ -1,4 +1,4 @@
-package pl.filipwlodarczyk.stronaZeZdejciami.user.registration;
+package pl.filipwlodarczyk.stronaZeZdejciami.registration;
 
 public class AppUserForm {
     private String username;
