@@ -46,10 +46,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 "/login"
         };
 
+        String[] forDeveloperUse = {
+                "/home"
+        };
+
 
         http.csrf().disable();
 
         http.authorizeRequests().antMatchers(forAll).permitAll();
+
+        http.authorizeRequests().antMatchers(forDeveloperUse).permitAll();
 
         http.authorizeRequests().antMatchers("/story/**").hasAuthority("ROLE_ADMIN");
 
