@@ -2,23 +2,29 @@ package pl.filipwlodarczyk.stronaZeZdejciami.registration;
 
 
 public class PasswordValidator {
-    public static validatePasswordResponse validatePassword(String password)  {
+    public static validatePasswordResponse validatePassword(String password) {
 
         Character firstChar = password.charAt(0);
+        char[] symbols = {
+                '!', '@', '#', '$', '%', '&', '*'
+        };
 
-       if (password.length() < 7) {
-           return new validatePasswordResponse(false, "Password is too short");
-       } else if (password.length() > 20) {
-           return new validatePasswordResponse(false,"password is too long");
-       } else if (firstChar < 64 || firstChar > 90) {
-           return new validatePasswordResponse(false,"First lettter is not an upper case");
-       } else {
-           return new validatePasswordResponse(true, "Password valided");
-       }
+
+        if (password.length() < 8) {
+            return new validatePasswordResponse(false, "Password is too short");
+        } else if (password.length() > 12) {
+            return new validatePasswordResponse(false, "password is too long");
+        } else if (firstChar < 64 || firstChar > 90) {
+            return new validatePasswordResponse(false, "First lettter is not an upper case");
+        } else if (!password.matches("[^-_=+\\\\|\\[{\\]};:'\",<>/]*")) {
+            return new validatePasswordResponse(false, "Passsword doesnt contain a symbol");
+        } else {
+            return new validatePasswordResponse(true, "Password valided");
+        }
     }
 
 
-    public static class validatePasswordResponse{
+    public static class validatePasswordResponse {
         boolean isValidated;
         String message;
 
