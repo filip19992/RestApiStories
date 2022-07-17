@@ -5,9 +5,7 @@ public class PasswordValidator {
     public static validatePasswordResponse validatePassword(String password) {
 
         Character firstChar = password.charAt(0);
-        char[] symbols = {
-                '!', '@', '#', '$', '%', '&', '*'
-        };
+        String regexForSymbols = "[^-_=+\\\\|\\[{\\]};:'\",<>/]*";
 
 
         if (password.length() < 8) {
@@ -16,7 +14,7 @@ public class PasswordValidator {
             return new validatePasswordResponse(false, "password is too long");
         } else if (firstChar < 64 || firstChar > 90) {
             return new validatePasswordResponse(false, "First lettter is not an upper case");
-        } else if (!password.matches("[^-_=+\\\\|\\[{\\]};:'\",<>/]*")) {
+        } else if (!password.matches(regexForSymbols)) {
             return new validatePasswordResponse(false, "Passsword doesnt contain a symbol");
         } else {
             return new validatePasswordResponse(true, "Password valided");

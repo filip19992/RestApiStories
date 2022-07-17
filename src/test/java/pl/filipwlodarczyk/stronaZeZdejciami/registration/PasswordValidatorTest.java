@@ -10,7 +10,7 @@ public class PasswordValidatorTest {
     @Test
     public void shouldValidateWhenPasswordWithFirstUppercaseGiven() throws Exception {
 
-        PasswordValidator.validatePasswordResponse validatePasswordResponse = PasswordValidator.validatePassword("Password");
+        PasswordValidator.validatePasswordResponse validatePasswordResponse = PasswordValidator.validatePassword("Password*");
 
         boolean validated = validatePasswordResponse.isValidated();
 
@@ -46,4 +46,6 @@ public class PasswordValidatorTest {
 
         assertFalse(validated);
     }
+
+
 }
