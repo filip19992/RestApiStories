@@ -4,7 +4,7 @@ package pl.filipwlodarczyk.stronaZeZdejciami.registration;
 public class PasswordValidator {
     public static validatePasswordResponse validatePassword(String password) {
 
-        Character firstChar = password.charAt(0);
+        char firstChar = password.charAt(0);
         String regexForSymbols = "[^-_=+\\\\|\\[{\\]};:'\",<>/]*";
 
 
