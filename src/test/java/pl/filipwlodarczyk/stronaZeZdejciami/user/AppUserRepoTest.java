@@ -35,4 +35,16 @@ class AppUserRepoTest {
         //then
         assertEquals(true, result);
     }
+
+    @Test
+    void itShouldReturnFalseIfExistsByUsername() {
+        //given
+        String username = "Filip";
+
+        //when
+        Boolean result = underTest.existsByUsername(username);
+
+        //then
+        assertEquals(false, result);
+    }
 }
