@@ -37,7 +37,7 @@ class AppUserRepoTest {
     }
 
     @Test
-    void itShouldReturnFalseIfExistsByUsername() {
+    void itShouldReturnFalseIfNotExistsByUsername() {
         //given
         String username = "Filip";
 
